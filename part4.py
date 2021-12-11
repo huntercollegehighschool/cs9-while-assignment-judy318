@@ -12,27 +12,31 @@ Enter a number or enter 0 to stop: 0
 Product: 60
 
 '''
-num1 = int(input("Enter a number or enter 0 to stop:"))
 product = 0
+num1 = 1
 num2 = 1
+counter = 1
 
-if num1 != 0:
-  while num2 != 0 and num1 != 0:
-    num2 = int(input("Enter a number or enter 0 to stop:"))
+while num2 != 0 and num1 != 0:
+  counter = 0
+  if counter >= 2:
+    totalfromprevround = product
+  num2 = int(input("Enter a number or enter 0 to stop:"))
+  if counter >= 2 and num2 != 0:
+    product = num1 * num2 * totalfromprevround
+  elif num2 != 0:
+    product = num2 * num1 
+  elif num2 == 0:
+    print(product)
+    break
+  num1 = int(input("Enter a number or enter 0 to stop:"))
+  if counter >= 2 and num2 != 0:
+    product = num1 * num2 * totalfromprevround
+  elif num1 != 0:
     product = num2 * num1
-    if num2 == 0:
-      print(product)
-      break
-    num1 = int(input("Enter a number or enter 0 to stop:"))
-    product = num2 * num1
-    if num1 == 0:
-      print(product)
-      break
-else:
-  print("Product: 0")
+  if num1 == 0:
+    print(product)
+    break
+  counter += 2
 
-
-#if num2 != 0 and num1 != 0:
-      
-  #elif num2 == 0 or num1 == 0:
-    #print("Product:", product)
+#num1 = int(input("Enter a number or enter 0 to stop:"))
